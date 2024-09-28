@@ -20,11 +20,14 @@ fileCount = 0
 for file in files:
     head, tail = os.path.split(file)
     print("Reading file: ", tail)            
-    read_file = pd.read_excel(file, engine="openpyxl")
+    read_file = pd.read_excel(file)
 
-    newfilePath = newPath.join(newPath, tail)
+    pre, ext = os.path.splitext(tail)
+    new_extension = ".csv"
+    newfilePath = os.path.join(newPath, pre + new_extension)
     
     print("Converting file...")
+   
     read_file.to_csv(newfilePath, index = None, header = True)
     print("File saved.")
 
