@@ -1,10 +1,6 @@
 import os
 import pandas as pd
 
-print('Enter path: \n')
-
-dirPath = input()
-
 cwd = os.getcwd()
 
 files = [os.path.join(cwd, f) for f in os.listdir(cwd) if 
@@ -24,7 +20,7 @@ fileCount = 0
 for file in files:
     head, tail = os.path.split(file)
     print("Reading file: ", tail)            
-    read_file = pd.read_excel(file)
+    read_file = pd.read_excel(file, engine="openpyxl")
 
     newfilePath = newPath.join(newPath, tail)
     
