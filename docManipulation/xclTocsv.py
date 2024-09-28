@@ -8,7 +8,7 @@ dirPath = input()
 cwd = os.getcwd()
 
 files = [os.path.join(cwd, f) for f in os.listdir(cwd) if 
-         os.path.isfile(os.path.join(cwd, f)) and f.endswith(".xlsx")]
+         os.path.isfile(os.path.join(cwd, f)) and (f.endswith(".xlsx") or f.endswith(".xls"))]
 
 newPath = os.path.join(cwd, r'newFiles')
 
